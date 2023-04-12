@@ -5,6 +5,8 @@ const Form = () => {
   let Lastname = useRef();
   let gender = useRef();
   let field = useRef();
+  let married = useRef();
+  let unmarried = useRef();
 
   const submitData = (e) => {
     e.preventDefault();
@@ -12,11 +14,15 @@ const Form = () => {
           First Name : ${Fname.current.value}
           Last Name : ${Lastname.current.value}
           Gender : ${gender.current.value}
-          Field : ${field.current.value}`);
+          Field : ${field.current.value}
+          Marital : ${married.current.checked === true ? married.current.value : unmarried.current.value}
+          `);
     Fname.current.value = "";
     Lastname.current.value = "";
     gender.current.value = "";
     field.current.value = "";
+    married.current.checked = false;
+    unmarried.current.checked = false;
     Fname.current.focus();
   };
   return (
@@ -45,6 +51,20 @@ const Form = () => {
           <option value="Web Designer">Web Designer</option>
         </select>
         <br />
+        <input
+          type="radio"
+          className="check"
+          name="marital"
+          ref={married}
+          value="Married"
+        />Married
+        <input
+          type="radio"
+          className="check"
+          name="marital"
+          ref={unmarried}
+          value="Unmarried"
+        />Unmarried
         <input type="submit" value="Submit" id="submit" />
       </form>
     </section>

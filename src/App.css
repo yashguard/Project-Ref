@@ -104,3 +104,8 @@ form select option {
   background-color: black;
   color: white;
 }
+
+.check {
+  width: 40px;
+  margin: 0 0 40px;
+}
